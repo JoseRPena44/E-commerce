@@ -1,4 +1,42 @@
+function renderBooks() {
+  const booksWrapper = document.querySelector('.books');
 
+ const books = getBooks();
+
+ const booksHtml = books.map((book) => {
+   return `<div class="book">
+            <figure class="book__img--wrapper">
+              <img class="book__img" src="${book.url}" alt="">
+            </figure>
+            <div class="book__title">
+              ${book.title}
+            </div>
+            <div class="book__ratings">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-alt"></i>
+            </div>
+            <div class="book__price">
+              <span class=>$${book.originalPrice.toFixed(2)}</span> 
+            </div>
+          </div>`;
+})
+.join(""); 
+
+console.log(booksHtml);
+
+booksWrapper.innerHTML = booksHtml;
+}
+
+function filterBooks(event) {
+  console.log(event);
+}
+
+setTimeout (() => {
+  renderBooks();
+});
 
 // FAKE DATA
 function getBooks() {
